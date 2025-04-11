@@ -1,0 +1,51 @@
+digraph STPA {
+	graph [constraint=false fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label=STPA nodesep=0.60 pad=2.0 rankdir=TB ranksep=2.0 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	subgraph "cluster_Level 0" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Level 0" labeljust=l pencolor="#AEB6BE" rank=same rankdir=LR shape=box style=rounded]
+		d7b74a7cdd5e4c638ba2aba1871e9182 [label="Air Traffic
+Control" height=2 labelloc=c width=7]
+	}
+	subgraph "cluster_Level 1" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Level 1" labeljust=l pencolor="#AEB6BE" rank=same rankdir=LR shape=box style=rounded]
+		f6ba167086ec4a19926362dddbadb5dc [label="Flight Crew" height=2 labelloc=c width=7]
+	}
+	subgraph "cluster_Level 2" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Level 2" labeljust=l pencolor="#AEB6BE" rank=same rankdir=LR shape=box style=rounded]
+		"9cf61e3615394f6387d86cf778f80b90" [label="Aircraft
+Automation" height=2 labelloc=c width=7]
+	}
+	subgraph "cluster_Level 3" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="Level 3" labeljust=l pencolor="#AEB6BE" rank=same rankdir=LR shape=box style=rounded]
+		"3db996f3cdeb434eb59db5d3e685d5d7" [label="Physical
+Aircraft
+Processes" height=2 labelloc=c width=7]
+	}
+	d7b74a7cdd5e4c638ba2aba1871e9182 -> f6ba167086ec4a19926362dddbadb5dc [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 xlabel="Clearance,
+instructions,
+information"]
+	f6ba167086ec4a19926362dddbadb5dc -> d7b74a7cdd5e4c638ba2aba1871e9182 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 style=dashed xlabel="Acknowledgements
+requests"]
+	f6ba167086ec4a19926362dddbadb5dc -> "9cf61e3615394f6387d86cf778f80b90" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 xlabel="Set mode,
+targets,
+etc."]
+	"9cf61e3615394f6387d86cf778f80b90" -> f6ba167086ec4a19926362dddbadb5dc [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 style=dashed xlabel="Current
+mode,
+targets,
+etc."]
+	f6ba167086ec4a19926362dddbadb5dc -> "3db996f3cdeb434eb59db5d3e685d5d7" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 xlabel="Manual
+flight
+controls"]
+	"3db996f3cdeb434eb59db5d3e685d5d7" -> f6ba167086ec4a19926362dddbadb5dc [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 style=dashed xlabel="Instrument
+readings,
+etc."]
+	"9cf61e3615394f6387d86cf778f80b90" -> "3db996f3cdeb434eb59db5d3e685d5d7" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 xlabel="Automated
+flight
+controls"]
+	"3db996f3cdeb434eb59db5d3e685d5d7" -> "9cf61e3615394f6387d86cf778f80b90" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 minlen=2 style=dashed xlabel="Sensor
+readings"]
+	d7b74a7cdd5e4c638ba2aba1871e9182 -> f6ba167086ec4a19926362dddbadb5dc [constraint=true dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 style=invis]
+	f6ba167086ec4a19926362dddbadb5dc -> "9cf61e3615394f6387d86cf778f80b90" [constraint=true dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 style=invis]
+	"9cf61e3615394f6387d86cf778f80b90" -> "3db996f3cdeb434eb59db5d3e685d5d7" [constraint=true dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 style=invis]
+}

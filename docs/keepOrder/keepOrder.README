@@ -1,0 +1,25 @@
+
+keepOrder.gvpr is a GVPR program that can be used to rearrange nodes within a Graphviz (DOT) graph.  Specifically, keepOrder.gvpr will make sure that all nodes within a subgraph will be displayed in the order that they were defined, as long as that subgraph has two attributes:
+- rank must be set to any of the legal values defined by Graphviz (https://graphviz.org/docs/attrs/rank/)
+- a new attribute keepOrder must be set to true.  Note that if keepOrder is set at the Root graph-level, it will be inherited by all subgraphs.
+
+
+below is a command line to run the keepOrder program:
+
+dot -GkeepOrder=true -Gphase=2 myfile.gv | dot -Gphase="" | gvpr -cf keepOrder.gvpr | neato -Gsplines=true -n2 -Tpng  >out.png
+
+Note:
+ -Gphase=true can be on the command line or added to your input
+  likewise,
+ -GkeepOrder=true can be invoked within the input
+   at the Root-level
+    or
+   at the graph-level (not the cluster-level)
+
+setting the phase attribute to 2 will cause dot to calculate all the
+  ranks and the "order" of the nodes within each rank and annotate the file
+  with that added info
+
+
+[GVPR (https://www.graphviz.org/pdf/gvpr.1.pdf) is one of the Graphviz programs, just like DOT.]
+

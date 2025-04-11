@@ -1,0 +1,92 @@
+{
+    "controllers": 
+    [
+        {
+            "id": "cc",
+            "label": "Central Command",
+            "level": 0
+        },
+        {
+            "id": "sms",
+            "label": "Station Management System",
+            "level": 0
+        },
+        {
+            "id": "dtc",
+            "label": "Driver or Train Control System",
+            "level": 1
+        },
+        {
+            "id": "pss",
+            "label": "Passenger Safety System",
+            "level": 1
+        },
+        {
+            "id": "pa",
+            "label": "Platform Automation",
+            "level": 2
+        },
+        {
+            "id": "ems",
+            "label": "Emergency System",
+            "level": 2
+        },
+        {
+            "id": "pp",
+            "label": "Physical Processes (Door Mechanism)",
+            "level": 3
+        }
+    ],
+    "groups": [],
+    "actions":
+    [
+        {
+            "from": "cc",
+            "to": "dtc",
+            "action": "Authorize door operation",
+            "feedback": "Operation status confirmation"
+        },
+        {
+            "from": "sms",
+            "to": "dtc",
+            "action": "Report platform readiness",
+            "feedback": "Status of platform environment"
+        },
+        {
+            "from": "dtc",
+            "to": "pa",
+            "action": "Open/close door command",
+            "feedback": "Door state update"
+        },
+        {
+            "from": "pss",
+            "to": "pa",
+            "action": "Enable door lock if obstruction detected",
+            "feedback": "Obstruction status"
+        },
+        {
+            "from": "pa",
+            "to": "pp",
+            "action": "Activate motor, sensors, and actuators",
+            "feedback": "Sensor readings, obstruction detection"
+        },
+        {
+            "from": "ems",
+            "to": "pa",
+            "action": "Force door open/close",
+            "feedback": "Emergency operation result"
+        },
+        {
+            "from": "pss",
+            "to": "ems",
+            "action": "Trigger emergency protocol",
+            "feedback": "Protocol acknowledgment"
+        },
+        {
+            "from": "dtc",
+            "to": "pss",
+            "action": "Request safety status",
+            "feedback": "Passenger safety indicators"
+        }
+    ]
+}
