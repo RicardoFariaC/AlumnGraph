@@ -13,6 +13,8 @@ dependencies = [
     "typer (>=0.15.2,<0.16.0)"
 ]
 
+[tool.poetry.scripts]
+alumn = "alumn:app"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
