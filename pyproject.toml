@@ -1,9 +1,9 @@
 [project]
-name = "stpa-diagrams"
+name = "alumn"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "Ricardo Faria da Costa",email = "ricardofcosta0804@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.10,<4.0"
