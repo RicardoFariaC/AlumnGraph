@@ -1,0 +1,69 @@
+{
+    "controllers": 
+    [
+        {
+            "id": "atc",
+            "label": "Air Traffic Control",
+            "level": 0
+        },
+        {
+            "id": "fc",
+            "label": "Flight Crew",
+            "level": 1
+        },
+        {
+            "id": "fc1",
+            "label": "FC1",
+            "level": 1
+        },
+        {
+            "id": "fc2",
+            "label": "FC2",
+            "level": 2
+        },
+        {
+            "id": "aa",
+            "label": "Aircraft Automation",
+            "level": 2
+        },
+        {
+            "id": "pap",
+            "label": "Physical Aircraft Processes",
+            "level": 3
+        }
+    ],
+    "groups": [
+        {
+            "id": "fc_groups",
+            "label": "Flight Crew",
+            "controllers_list": ["fc", "fc1", "fc2"]
+        }
+    ],
+    "actions":
+    [
+        {
+            "from": "atc",
+            "to": "fc",
+            "action": "Clearance, instructions, information",
+            "feedback": "Acknowledgements requests"
+        },
+        {
+            "from": "fc",
+            "to": "aa",
+            "action": "Set mode, targets, etc.",
+            "feedback": "Current mode, targets, etc."
+        },
+        {
+            "from": "fc",
+            "to": "pap",
+            "action": "Manual flight controls",
+            "feedback": "Instrument readings, etc."
+        },
+        {
+            "from": "aa",
+            "to": "pap",
+            "action": "Automated flight controls",
+            "feedback": "Sensor readings"
+        }
+    ]
+}

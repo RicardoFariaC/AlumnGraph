@@ -1,0 +1,27 @@
+[project]
+name = "alumn"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Ricardo Faria da Costa",email = "ricardofcosta0804@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "diagrams (>=0.24.4,<0.25.0)",
+    "networkx (>=3.4.2,<4.0.0)",
+    "typer (>=0.15.2,<0.16.0)"
+]
+
+[tool.poetry]
+packages = [
+    {include = "alumn/__init__.py" },
+    {include = "alumn/src/*" },
+]
+
+[project.scripts]
+alumn = "alumn:app"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

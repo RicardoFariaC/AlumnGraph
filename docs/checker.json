@@ -1,0 +1,47 @@
+{
+	"controllers": [{
+		"id": "idu",
+		"label": "Carteirinha do aluno",
+		"level": 0
+	},
+	{
+		"id": "app",
+		"label": "Aplicativo UniVap",
+		"level": 0
+	},
+	{
+		"id": "qr",
+		"label": "QrCode da carteirinha do aluno",
+		"level": 2
+	},
+	{
+		"id": "api",
+		"label": "Api com as informações dos alunos",
+		"level": 1
+	},
+	{
+		"id": "host",
+		"label": "Site com acesso à camera para celulares dos hosts",
+		"level": 1
+	},
+	{
+		"id": "part",
+		"label": "Api para controle de participação",
+		"level": 2
+	},
+	{
+		"id": "rel",
+		"label": "Relatório final de presença",
+		"level": 3
+	}
+	],
+	"groups": [],
+	"actions": [
+	{"from": "app", "to": "idu", "action": "Entrar com credenciais", "feedback": "Devolver informações do aluno"},
+	{"from": "idu", "to": "qr", "action": "Construir o QRCode", "feedback": "Disponibilizar um site para acesso às informações"},
+	{"from": "qr", "to": "api", "action": "Acessa às informações dos alunos", "feedback": "Disponibiliza as informações dos alunos"},
+	{"from": "host", "to": "qr", "action": "Acessa o conteúdo pela câmera", "feedback": "Retorna um site com informações"},
+	{"from": "host", "to": "part", "action": "Envia as informações do aluno para a API", "feedback": "Guarda as informações na base de dados e retorna OK"},
+	{"from": "part", "to": "rel", "action": "Solicita a geração de um relatório", "feedback": "Gera um arquivo com as relações de alunos/turma e presença"}
+	] 
+}

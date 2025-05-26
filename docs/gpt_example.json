@@ -1,0 +1,85 @@
+{
+  "controllers": [
+    { "id": "scc", "label": "Shore-Based Control Centre", "level": 0 },
+    { "id": "vc", "label": "Autonomous Ship Controller (Virtual Captain)", "level": 1 },
+    { "id": "eng", "label": "Autonomous Engine Monitoring and Control", "level": 2 },
+    { "id": "maint", "label": "Maintenance Planning", "level": 2 },
+    { "id": "cargo", "label": "Cargo Handling and Monitoring", "level": 2 },
+    { "id": "stability", "label": "Stability and Integrity", "level": 2 },
+    { "id": "prop", "label": "Propulsion, Steering and Auxiliary", "level": 3 },
+    { "id": "power", "label": "Power Generation and Distribution", "level": 3 },
+    { "id": "monitor", "label": "Monitoring during Voyage", "level": 3 },
+    { "id": "load", "label": "Loading/Unloading", "level": 3 },
+    { "id": "fire", "label": "Fire Protection and Fighting", "level": 3 },
+    { "id": "stabctrl", "label": "Stability Control", "level": 3 },
+    { "id": "nav", "label": "Autonomous Navigation System", "level": 4 },
+    { "id": "anchor", "label": "Anchoring and Mooring", "level": 5 },
+    { "id": "pnt", "label": "PNT System", "level": 5 },
+    { "id": "situ", "label": "Navigational Situation Awareness", "level": 5 },
+    { "id": "colavoid", "label": "Collision Avoidance", "level": 5 },
+    { "id": "dps", "label": "Dynamic Positioning", "level": 5 },
+    { "id": "route", "label": "Route Planning", "level": 5 },
+    { "id": "comm", "label": "Reporting and Communication", "level": 5 },
+    { "id": "weather", "label": "Weather Monitoring", "level": 5 },
+    { "id": "map", "label": "Surroundings Mapping", "level": 6 },
+    { "id": "detect", "label": "Object Detection", "level": 6 },
+    { "id": "ident", "label": "Object Identification", "level": 6 },
+    { "id": "risk", "label": "Collision Risk Assessment", "level": 7 },
+    { "id": "path", "label": "Dynamic Path Planning", "level": 7 }
+  ],
+  "groups": [
+    {
+      "id": "grp_engine",
+      "label": "Engine & Maintenance",
+      "controllers_list": ["eng", "maint", "prop", "power"]
+    },
+    {
+      "id": "grp_cargo",
+      "label": "Cargo and Stability",
+      "controllers_list": ["cargo", "stability", "fire", "stabctrl", "monitor", "load"]
+    },
+    {
+      "id": "grp_nav",
+      "label": "Navigation and Awareness",
+      "controllers_list": ["nav", "anchor", "pnt", "situ", "colavoid", "dps", "route", "comm", "weather"]
+    },
+    {
+      "id": "grp_sensors",
+      "label": "Sensor Subsystems",
+      "controllers_list": ["map", "detect", "ident", "risk", "path"]
+    }
+  ],
+  "actions": [
+    { "from": "scc", "to": "vc", "action": "Send remote controls", "feedback": "Situational updates" },
+    { "from": "vc", "to": "eng", "action": "Monitor engine", "feedback": "Engine status" },
+    { "from": "vc", "to": "maint", "action": "Schedule maintenance", "feedback": "Maintenance status" },
+    { "from": "vc", "to": "cargo", "action": "Oversee cargo", "feedback": "Cargo status" },
+    { "from": "vc", "to": "stability", "action": "Check integrity", "feedback": "Stability report" },
+    { "from": "vc", "to": "nav", "action": "Navigation commands", "feedback": "Position updates" },
+
+    { "from": "cargo", "to": "monitor", "action": "Monitor voyage", "feedback": "Cargo readings" },
+    { "from": "cargo", "to": "load", "action": "Load/unload ops", "feedback": "Loading status" },
+
+    { "from": "stability", "to": "stabctrl", "action": "Adjust balance", "feedback": "Balance data" },
+    { "from": "stability", "to": "fire", "action": "Fire readiness", "feedback": "Fire system status" },
+
+    { "from": "eng", "to": "prop", "action": "Control propulsion", "feedback": "Propulsion feedback" },
+    { "from": "eng", "to": "power", "action": "Manage power", "feedback": "Power metrics" },
+
+    { "from": "nav", "to": "anchor", "action": "Anchor commands", "feedback": "Anchor status" },
+    { "from": "nav", "to": "pnt", "action": "Position update", "feedback": "Coordinates" },
+    { "from": "nav", "to": "situ", "action": "Get situation awareness", "feedback": "Surroundings info" },
+    { "from": "nav", "to": "colavoid", "action": "Avoid collision", "feedback": "Risk level" },
+    { "from": "nav", "to": "dps", "action": "Stabilize position", "feedback": "Position delta" },
+    { "from": "nav", "to": "route", "action": "Plan route", "feedback": "Route confirmation" },
+    { "from": "nav", "to": "comm", "action": "Send reports", "feedback": "Report acknowledgment" },
+    { "from": "nav", "to": "weather", "action": "Request weather data", "feedback": "Forecast data" },
+
+    { "from": "situ", "to": "map", "action": "Map surroundings", "feedback": "Map data" },
+    { "from": "situ", "to": "detect", "action": "Detect objects", "feedback": "Object list" },
+    { "from": "situ", "to": "ident", "action": "Identify objects", "feedback": "Object IDs" },
+
+    { "from": "colavoid", "to": "risk", "action": "Assess collision", "feedback": "Risk score" },
+    { "from": "dps", "to": "path", "action": "Calculate path", "feedback": "Path coordinates" }
+  ]
+}

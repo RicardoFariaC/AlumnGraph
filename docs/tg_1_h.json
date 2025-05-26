@@ -1,0 +1,34 @@
+{
+    "controllers": [
+        {
+            "id": "a1",
+            "label": "Nó 1",
+            "level": 0
+        },
+        {
+            "id": "a2",
+            "label": "Nó 2",
+            "level": 0
+        },
+        {
+            "id": "a3",
+            "label": "Nó 3",
+            "level": 1
+        }
+    ],
+    "groups": [],
+    "actions": [
+        {
+            "from": "a1",
+            "to": "a3",
+            "action": "Faça algo.",
+            "feedback": "Responda algo."
+        },
+        {
+            "from": "a2",
+            "to": "a3",
+            "action": "Faça algo.",
+            "feedback": "Responda algo."
+        }
+    ]
+}

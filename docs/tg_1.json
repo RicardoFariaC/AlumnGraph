@@ -1,0 +1,53 @@
+{
+    "controllers": [
+        {
+            "id": "atc",
+            "label": "Controle de tráfego aéreo",
+            "level": 0
+        },
+        {
+            "id": "fc",
+            "label": "Tripulação de voo",
+            "level": 1
+        },
+        {
+            "id": "aa",
+            "label": "Automação de Aeronave",
+            "level": 2
+        },
+        {
+            "id": "pap",
+            "label": "Processos físicos da aeronave",
+            "level": 4
+        }
+    ],
+    "groups": [
+
+    ],
+    "actions": [
+        {
+            "from": "atc",
+            "to": "fc",
+            "action": "Instruções / Autorizações",
+            "feedback": "Reconhecimentos / Solicitações"
+        },
+        {
+            "from": "fc",
+            "to": "aa",
+            "action": "Definir modo, alvos, etc.",
+            "feedback": "Modo atual, alvos, etc."
+        },
+        {
+            "from": "fc",
+            "to": "pap",
+            "action": "Controles manuais de voo ",
+            "feedback": "Leitura de instrumentos, etc."
+        },
+        {
+            "from": "aa",
+            "to": "pap",
+            "action": "Controles automatizados de voo",
+            "feedback": "Leitura de sensores"
+        }
+    ]
+}
