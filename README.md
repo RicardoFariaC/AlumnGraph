@@ -98,6 +98,22 @@ Each action describes a communication from one controller to another:
 > }
 > ```
 
+## How to run?
+
+To be able to run Alumn without any problem, first you must install `graphviz dot` binary
+
+#### RHEL-based Distros
+
+```sh
+sudo dnf install graphviz
+```
+
+#### Debian-based Distros
+
+```sh
+sudo apt install graphviz
+```
+
 ## Disclaimer
 
 ## Contributing

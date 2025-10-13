@@ -35,7 +35,13 @@
 		"level": 3
 	}
 	],
-	"groups": [],
+	"groups": [
+		{
+			"id": "app",
+			"label": "App Env",
+			"controllers_list": ["idu", "app", "qr", "api"]
+		}
+	],
 	"actions": [
 	{"from": "app", "to": "idu", "action": "Entrar com credenciais", "feedback": "Devolver informações do aluno"},
 	{"from": "idu", "to": "qr", "action": "Construir o QRCode", "feedback": "Disponibilizar um site para acesso às informações"},
