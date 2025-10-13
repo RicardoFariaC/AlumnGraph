@@ -60,11 +60,11 @@ def howto() -> None:
     header()
     typer.echo("""
     JSON Format Guide:
+<<<<<<< HEAD
 
     1. Controllers: Define system components with id, label, and level
     2. Groups: Optional grouping of controllers with id, label and controllers_list
     3. Actions: Define control actions between components with from, to, action, feedback
-
     Example:
     {
         "controllers": [
