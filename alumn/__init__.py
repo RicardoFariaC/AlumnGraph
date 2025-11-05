@@ -60,7 +60,6 @@ def howto() -> None:
     header()
     typer.echo("""
     JSON Format Guide:
-<<<<<<< HEAD
 
     1. Controllers: Define system components with id, label, and level
     2. Groups: Optional grouping of controllers with id, label and controllers_list
@@ -90,8 +89,8 @@ def paint(
     ] = "svg",
     output_local: Annotated[
         Optional[str],
-        typer.Option("--output", "-o", help="Output local (/tmp/name.ext)"),
-    ] = ".",
+        typer.Option("--output", "-o", help="Output local (/tmp/name)"),
+    ] = "stpa",
     verbose: Annotated[
         bool, typer.Option("--verbose", "-v", help="Enable verbose logging")
     ] = False,
