@@ -114,10 +114,11 @@ def paint(
         graph = graph_handler.GraphHandler(json_file=json_file)
         action_list = drawing.set_action_list(graph)
 
-        if output_local:
-            drawing.define_diagram(graph, action_list, output_local)
-        else:
-            drawing.define_diagram(graph, action_list)
+        if output_format:
+            if output_local:
+                drawing.define_diagram(graph, action_list, output_local, output_format)
+            else:
+                drawing.define_diagram(graph, action_list)
 
         typer.echo("✅ Graph generated successfully")
         typer.echo(f"📂 Output file: {output_local}.{output_format}")

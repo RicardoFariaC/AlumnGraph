@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from typing import Dict, Any
 from pathlib import Path
+from typing import Any, Dict
 
 
 @dataclass
@@ -9,13 +9,13 @@ class DrawingConfig:
     SOLO_NODE_WIDTH: str = "10"
     NODE_HEIGHT: str = "2"
 
-    NODESEP: str = "5"
+    NODESEP: str = "4"
     RANKSEP: str = "2.0 equally"
     MINLEN: str = "3"
 
     WRAP_MAX_LENGTH: int = 15
-    LABEL_FONT_SIZE: str = "40"
-    EDGE_FONT_SIZE: str = "35"
+    LABEL_FONT_SIZE: str = "60"
+    EDGE_FONT_SIZE: str = "40"
 
     DEFAULT_NODE_COLOR: str = "white"
     DEFAULT_GROUP_COLOR: str = "lightblue"
@@ -55,7 +55,7 @@ class ValidationConfig:
 @dataclass
 class FileConfig:
     SUPPORTED_INPUT_FORMATS: tuple = (".json",)
-    SUPPORTED_OUTPUT_FORMATS: tuple = (".svg", ".png", ".pdf")
+    SUPPORTED_OUTPUT_FORMATS: tuple = ("svg", "png", "pdf")
 
     DEFAULT_OUTPUT_DIR: str = "."
     DEFAULT_OUTPUT_NAME: str = "stpa"

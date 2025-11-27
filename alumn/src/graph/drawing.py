@@ -1,8 +1,10 @@
+import textwrap
 from typing import Any, Dict, List
+
 from diagrams import Cluster, Diagram, Edge, Node
+
 from alumn.src.config import config
 from alumn.src.graph.graph_handler import ControlAction, GraphHandler
-import textwrap
 
 
 def wrap_text(text: str, max_length: int = 30, isHTML: bool = False) -> str:
@@ -144,6 +146,7 @@ def render_diagram(
     diagram_data: Dict[str, Any],
     action_list: List[ControlAction],
     filename: str,
+    output_format: str,
 ) -> None:
     """
     Renderiza o diagrama STPA com base nos dados preparados.
@@ -170,7 +173,7 @@ def render_diagram(
     max_level = diagram_data["max_level"]
 
     with Diagram(
-        "STPA",
+        filename.split("/")[-1].upper(),
         filename,
         direction="TB",
         curvestyle="ortho",
@@ -187,7 +190,7 @@ def render_diagram(
             "arrowsize": config.drawing.EDGE_ARROWSIZE,
             "fontsize": config.drawing.EDGE_FONT_SIZE,
         },
-        outformat="svg",
+        outformat=output_format,
     ):
         nodes: Dict[str, Any] = {}
 
@@ -281,6 +284,7 @@ def render_diagram(
                             minlen=drawing_params["minlen"],
                             weight="1",
                             fontsize=drawing_params["edge_font_size"],
+                            labeldistance="4.0",
                         )
                         >> nodes[to_id]
                     )
@@ -294,6 +298,9 @@ def render_diagram(
                                 style="dashed",
                                 weight="1",
                                 fontsize=drawing_params["edge_font_size"],
+                                color="darkorchid3",
+                                fontcolor="darkorchid4",
+                                labeldistance="4.0",
                             )
                             >> nodes[from_id]
                         )
@@ -315,7 +322,10 @@ def render_diagram(
 
 
 def define_diagram(
-    graph: GraphHandler, action_list: List[ControlAction], filename: str = "stpa"
+    graph: GraphHandler,
+    action_list: List[ControlAction],
+    filename: str = "stpa",
+    output_format: str = "svg",
 ) -> None:
     """
     Função principal que configura e renderiza o diagrama STPA.
@@ -332,7 +342,7 @@ def define_diagram(
         None (o diagrama é salvo como arquivo)
     """
     diagram_data = prepare_diagram_data(graph, action_list)
-    render_diagram(diagram_data, action_list, filename)
+    render_diagram(diagram_data, action_list, filename, output_format)
 
 
 def remove_empty_entries(level_nodes: Dict[int, List[str]]) -> None:
