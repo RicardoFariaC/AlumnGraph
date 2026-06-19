@@ -98,6 +98,28 @@ Each action describes a communication from one controller to another:
 > }
 > ```
 
+## How to run?
+
+To be able to run Alumn without any problem, first you must install `graphviz dot` binary, `uv` python package manager and install python venv dependencies
+
+#### RHEL-based Distros
+
+```sh
+sudo dnf install graphviz;
+curl -LsSf https://astral.sh/uv/install.sh | sh;
+uv sync;
+uv run pyinstaller alumn.spec;
+```
+
+#### Debian-based Distros
+
+```sh
+sudo apt install graphviz;
+curl -LsSf https://astral.sh/uv/install.sh | sh;
+uv sync;
+uv run pyinstaller alumn.spec;
+```
+
 ## Disclaimer
 
 ## Contributing

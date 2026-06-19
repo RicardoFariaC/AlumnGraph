@@ -1,0 +1,19 @@
+{
+	"controllers": [
+		{"id": "fc", "label":"Flight Crew", "level": 0},
+		{"id": "dwca","label": "Displays / WCAs","level": 1},
+		{"id": "ap","label": "Autopilot","level": 1},
+		{"id": "sa","label": "Stability Augmentation","level": 1},
+		{"id": "sen","label": "Sensors","level": 2},
+		{"id": "air","label": "Aircraft","level": 3}
+	],
+	"groups": [],
+	"actions": [
+		{"from": "fc", "to": "dwca", "action": "Update selections\nSilence WCAs", "feedback": "Match selections\nProvide WCAs\nSilence WCAs"},
+		{"from": "fc", "to": "ap", "action": "Engage/disengage AP\nAdjust AP", "feedback": "Engage/disengage AP\nAdjust AP"},
+		{"from": "fc", "to": "sa", "action": "Pitch, Roll, Yaw control\nCollective control", "feedback": "Pitch, Yaw, Roll, Climb rate change\nAirspeed, Altitude change\nStick feedback"},
+		{"from": "dwca", "to": "sen", "action": "Configure sensors\nActive/deactive", "feedback": "Position\nAltitude\nAirspeed\nAttitude\nAttitude rates\nStatus"},
+		{"from": "ap", "to": "sa", "action": "Pitch, Roll, Yaw control\nCollective control", "feedback": "Attitude\nAttitude Rates\nLane Saturation" },
+		{"from": "sa", "to": "air", "action": "Pitch, Roll, Yaw control\nCollective control", "feedback": "Pitch, Yaw, Roll, Climb rate change\nAirspeed, Altitude change\nStick feedback" }
+	]
+}

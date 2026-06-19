@@ -1,39 +1,39 @@
 {
-    "controllers": [
-        {
-            "id": "A",
-            "label": "Component A",
-            "level": 0
-        },
-        {
-            "id": "B",
-            "label": "Component B",
-            "level": 0
-        },
-        {
-            "id": "C",
-            "label": "Component C",
-            "level": 2
-        }
-    ],
-    "groups": [],
-    "actions": [
-        {
-            "from": "A",
-            "to": "B",
-            "action": "Send command to B",
-            "feedback": "B acknowledges"
-        },
-        {
-            "from": "B",
-            "to": "C",
-            "action": "Send command to C",
-            "feedback": "C acknowledges"
-        },
-        {
-            "from": "B",
-            "to": "A",
-            "action": "Send command to A"
-        }
-    ]
+  "controllers": [
+    {
+      "id": "A",
+      "label": "Component A",
+      "level": 0
+    },
+    {
+      "id": "B",
+      "label": "Component B",
+      "level": 1
+    },
+    {
+      "id": "C",
+      "label": "Component C",
+      "level": 2
+    }
+  ],
+  "groups": [],
+  "actions": [
+    {
+      "from": "A",
+      "to": "B",
+      "action": "Send command to B",
+      "feedback": "B acknowledges"
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "action": "Send command to C",
+      "feedback": "C acknowledges"
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "action": "Send command to A"
+    }
+  ]
 }
